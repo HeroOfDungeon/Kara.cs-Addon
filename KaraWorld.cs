@@ -34,7 +34,7 @@ namespace KaraProjekt
     public partial class KaraWorld : UserControl
     {
         // Multiply Speed:
-        int MultiplySpeed = 5; // Standartmässig 1
+        int MultiplySpeed = 1; // Standartmässig 1
 
         Zelle[,] world;
         int groesse, zellengroesse = 30;
