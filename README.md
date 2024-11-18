@@ -18,6 +18,11 @@ getRightX
 getRightY
 getLeftX
 ```
+## Samples
+```csharp
+int kara_x = kara.getY();
+if (kara.LeafFront()) {/* Code here */}
+```
 ## Speed multiply
 Take a look at row 37 in the document
 
