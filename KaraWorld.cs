@@ -35,7 +35,7 @@ namespace KaraProjekt
     public partial class KaraWorld : UserControl
     {
         // Multiply Speed:
-        int MultiplySpeed = 5; // Standartmässig 1
+        int MultiplySpeed = 1; // Standartmässig 1
 
         Zelle[,] world;
         int groesse, zellengroesse = 30;
@@ -167,6 +167,7 @@ namespace KaraProjekt
             if (rdbNormal.Checked) geschschwindigkeit = 500 / MultiplySpeed;
             if (rdbSchnell.Checked) geschschwindigkeit = 200 / MultiplySpeed;
             if (rdbSuperSchnell.Checked) geschschwindigkeit = 50 / MultiplySpeed;
+            if (rdbInstant.Checked) geschschwindigkeit = 0;
         }
 
         private void rdbSchnell_CheckedChanged(object sender, EventArgs e)
@@ -174,6 +175,14 @@ namespace KaraProjekt
             if (rdbNormal.Checked) geschschwindigkeit = 500 / MultiplySpeed;
             if (rdbSchnell.Checked) geschschwindigkeit = 200 / MultiplySpeed;
             if (rdbSuperSchnell.Checked) geschschwindigkeit = 50 / MultiplySpeed;
+            if (rdbInstant.Checked) geschschwindigkeit = 0;
+        }
+        private void rdbCheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbNormal.Checked) geschschwindigkeit = 500 / MultiplySpeed;
+            if (rdbSchnell.Checked) geschschwindigkeit = 200 / MultiplySpeed;
+            if (rdbSuperSchnell.Checked) geschschwindigkeit = 50 / MultiplySpeed;
+            if (rdbInstant.Checked) geschschwindigkeit = 0;
         }
 
         #region World Speichern und Laden
@@ -416,6 +425,11 @@ namespace KaraProjekt
             world[Y, X].setzeHintergrundBild();
             this.Refresh();
             System.Threading.Thread.Sleep(geschschwindigkeit);
+        }
+
+        public void Log(string value)
+        {
+            System.Console.WriteLine(value);
         }
 
         // Ende modified Elements
