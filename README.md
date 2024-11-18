@@ -1,5 +1,5 @@
-# Kara.cs - Modified
-A modified version of Kara.cs with a lot of new things like:
+# Kara.cs - Addon
+A modified version of Kara.cs including a lot of new things like:
 
 # Features
 ## Bools:
@@ -30,15 +30,14 @@ PlaceTreeAt(x, y) // places a tree at x, y
 PlaceAirAt(x, y) // places air at x, y
 Log(value) // Log something
 ```
-## Samples
-```csharp
-int kara_x = kara.getY();
-if (kara.LeafFront()) {/* Code here */}
-```
 ## Speed multiply
 Take a look at row 37 in the document
 ## Instant mode
 Runs files at the fastest speed possible
-
+# Samples
+```csharp
+int kara_x = kara.getY();
+if (kara.LeafFront()) {/* Code here */}
+```
 # How-To install
 Drag and replace all files in the Kara main folder
