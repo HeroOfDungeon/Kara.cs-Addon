@@ -15,7 +15,7 @@ using System.Runtime.Serialization;
 namespace KaraProjekt
 {
     //cKara Version 1.1 by Barbara Bielawski
-    //Modified_cKara Version 1.0 by HeroOfDungeon
+    //Modified_cKara Version 1.1 by HeroOfDungeon
     /* 
     Neue bools:
     LeafFront()
@@ -30,6 +30,7 @@ namespace KaraProjekt
     getRightY
     getLeftX
     getLeftY
+    getDirection
     */
     public partial class KaraWorld : UserControl
     {
@@ -282,44 +283,49 @@ namespace KaraProjekt
         }
 
         // Modified elements
-        public int GetX()
+        public int getX()
         {
             return ckara.posX;
         }
 
-        public int GetY()
+        public int getY()
         {
             return ckara.posY;
         }
 
-        public int GetXFront()
+        public int getXFront()
         {
             return ckara.posXFront;
         }
 
-        public int GetYFront()
+        public int getYFront()
         {
             return ckara.posYFront;
         }
 
-        public int GetXLeft()
+        public int getXLeft()
         {
             return ckara.posXLeft;
         }
 
-        public int GetYLeft()
+        public int getYLeft()
         {
             return ckara.posYLeft;
         }
 
-        public int GetXRight()
+        public int getXRight()
         {
             return ckara.posXRight;
         }
 
-        public int GetYRight()
+        public int getYRight()
         {
             return ckara.posYRight;
+        }
+
+        public int getDirection()
+        {
+            return ckara.RichtungKara;
         }
 
         public bool LeafFront()
@@ -351,6 +357,65 @@ namespace KaraProjekt
                 return true;
             }
             else return false;
+        }
+
+        public bool IsLeafAt(int X, int Y)
+        {
+            if (world[Y, X].Zellinhalt == Zelle.Inhalt.Kleeblatt)
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        public bool IsTreeAt(int X, int Y)
+        {
+            if (world[Y, X].Zellinhalt == Zelle.Inhalt.Baum)
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        public bool IsEmptyAt(int X, int Y)
+        {
+            if (world[Y, X].Zellinhalt == Zelle.Inhalt.Leer)
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        public void PlaceLeafAt(int X, int Y)
+        {
+            if (world[Y, X].Zellinhalt == Zelle.Inhalt.Leer)
+            {
+                world[Y, X].Zellinhalt = Zelle.Inhalt.Kleeblatt;
+                world[Y, X].setzeHintergrundBild();
+                this.Refresh();
+                System.Threading.Thread.Sleep(geschschwindigkeit);
+            }
+            else System.Console.WriteLine("Kordinaten bereits belegt");
+        }
+
+        public void PlaceTreeAt(int X, int Y)
+        {
+            if (world[Y, X].Zellinhalt == Zelle.Inhalt.Leer)
+            {
+                world[Y, X].Zellinhalt = Zelle.Inhalt.Baum;
+                world[Y, X].setzeHintergrundBild();
+                this.Refresh();
+                System.Threading.Thread.Sleep(geschschwindigkeit);
+            }
+            else System.Console.WriteLine("Kordinaten bereits belegt");
+        }
+
+        public void PlaceAirAt(int X, int Y)
+        {
+            world[Y, X].Zellinhalt = Zelle.Inhalt.Leer;
+            world[Y, X].setzeHintergrundBild();
+            this.Refresh();
+            System.Threading.Thread.Sleep(geschschwindigkeit);
         }
 
         // Ende modified Elements
