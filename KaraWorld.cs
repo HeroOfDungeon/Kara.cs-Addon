@@ -34,7 +34,7 @@ namespace KaraProjekt
     public partial class KaraWorld : UserControl
     {
         // Multiply Speed:
-        int MultiplySpeed = 1; // Standartmässig 1
+        int MultiplySpeed = 5; // Standartmässig 1
 
         Zelle[,] world;
         int groesse, zellengroesse = 30;
@@ -408,7 +408,7 @@ namespace KaraProjekt
                 this.Refresh();
                 System.Threading.Thread.Sleep(geschschwindigkeit);
             }
-            else MessageBox.Show("Da liegt schon ein Blatt");
+            else System.Console.WriteLine("Blatt bereits da");
         }
         public void RemoveLeaf()
         {
@@ -421,7 +421,7 @@ namespace KaraProjekt
                 this.Refresh();
                 System.Threading.Thread.Sleep(geschschwindigkeit);
             }
-            else MessageBox.Show("Da liegt gar kein Blatt");
+            else System.Console.WriteLine("Blatt nicht gefunden");
         } 
         #endregion
     }
