@@ -1,5 +1,5 @@
-# KaraWorld.cs-Modified
-A modified version of KaraWorld.cs with a lot of new things like:
+# Kara.cs - Modified
+A modified version of Kara.cs with a lot of new things like:
 
 # Features
 ## Bools:
@@ -37,6 +37,8 @@ if (kara.LeafFront()) {/* Code here */}
 ```
 ## Speed multiply
 Take a look at row 37 in the document
+## Instant mode
+Runs files at the fastest speed possible
 
 # How-To install
 Drag and replace all files in the Kara main folder
